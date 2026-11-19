@@ -7,6 +7,10 @@ const cors = require("cors");
 dotenv.config();
 
 
+const userRoutes = require("./routes/user");
+const workoutRoutes = require("./routes/workout");
+
+
 const app = express();
 const port = 4000;
 
@@ -20,6 +24,10 @@ db.once("open", () => console.log("We're connected to the cloud database!"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+
+app.use("/users", userRoutes);
+app.use("/workouts", workoutRoutes);
 
 
 if (require.main === module) {
