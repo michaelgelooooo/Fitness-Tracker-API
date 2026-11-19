@@ -16,8 +16,8 @@ const workoutSchema = new mongoose.Schema({
         required: [true, 'Duration is Required']
     },
     status: {
-        type: Boolean,
-        default: false
+        type: String,
+        default: "pending"
     },
     dateAdded: {
         type: Date,
